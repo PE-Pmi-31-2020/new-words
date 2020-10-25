@@ -28,7 +28,8 @@ namespace DAL
         }
         public void insertTestData()
         {
-            string[] testNames = {"Pete", "John", "Antony", "Dmytro", "Diana", "Jack", "Kate", "Walt", "Michael", "Sawyer", "Ben"}
+            string[] testNames = { "Pete", "John", "Antony", "Dmytro", "Diana", "Jack", "Kate", "Walt", "Michael", "Sawyer", "Ben" };
+            string[] mails = { "@gmail.com", "@ukr.net", "@lambda.direct" };
             var connection = createConnection();
             connection.Open();
             var cmd = new NpgsqlCommand();
