@@ -19,7 +19,7 @@ namespace NewWords
         private void createConnection()
         {
             Db database = new Db();
-            database.insertTestData(2);
+            // database.insertTestData(2);
         }
     }
 }
