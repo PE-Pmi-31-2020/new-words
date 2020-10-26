@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BusinessLogicLayer
+namespace BLL
 {
     class Autorization
     {
@@ -27,4 +27,3 @@ namespace BusinessLogicLayer
         }
     }
 }
-
