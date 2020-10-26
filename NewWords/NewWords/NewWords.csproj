@@ -125,9 +125,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{7ab9826d-f86c-45b4-a10b-753608292950}</Project>
       <Name>DAL</Name>
