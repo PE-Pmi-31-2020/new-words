@@ -15,24 +15,13 @@ using System.Windows.Shapes;
 namespace NewWords
 {
     /// <summary>
-    /// Interaction logic for Card.xaml
+    /// Interaction logic for Library.xaml
     /// </summary>
-    public partial class Card : Window
+    public partial class Library : Window
     {
-        public Card()
+        public Library()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            TranslatedCard translatedCard = new TranslatedCard();
-            translatedCard.Show();
         }
     }
 }
