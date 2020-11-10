@@ -11,39 +11,23 @@ namespace DAL.Repositories
 {
     class UserRepository
     {
-        private NpgsqlConnection connection;
-        public UserRepository(NpgsqlConnection connection)
+        private DataBase db;
+        public UserRepository(DataBase db)
         {
-            this.connection = connection;
+            this.db = db;
         }
 
         public List<User> getUsers()
         {
-            connection.Open();
-            var cmd = new NpgsqlCommand();
-            cmd.Connection = connection;
-            cmd.CommandText = "SELECT * FROM users";
-            List<User> users = new List<User>();
-            NpgsqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                users.Add(new User(Convert.ToInt32(reader["id"].ToString()),
-                                                   reader["email"].ToString(), 
-                                                   reader["password"].ToString())
-                                  );
-            }
-            connection.Close();
-            return users;
+            var users = from u in db.users
+                        select u;
+            return users.ToList();
         }
 
         public void insertUser(User user)
         {
-            connection.Open();
-            var cmd = new NpgsqlCommand();
-            cmd.Connection = connection;
-            cmd.CommandText = $"INSERT INTO users(email, password) VALUES('{user.email}','{user.password}')";
-            cmd.ExecuteNonQuery();
-            this.connection.Close();
+            db.users.Add(user);
+            db.SaveChanges();
         }
 
     }

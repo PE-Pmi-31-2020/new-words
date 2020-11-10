@@ -13,7 +13,7 @@ namespace DAL.Utils
             Random random = new Random();
             string[] names = { "Pete", "John", "Antony", "Dmytro", "Diana", "Jack", "Kate", "Walt", "Michael", "Sawyer", "Ben" };
             string[] mails = { "@gmail.com", "@ukr.net", "@lambda.direct" };
-            return $"{names[random.Next(names.Length)]}{mails[random.Next(mails.Length)]}";
+            return $"{names[random.Next(names.Length)]}{random.Next(1,10000)}{mails[random.Next(mails.Length)]}";
         }
         public static string generatePassword()
         {

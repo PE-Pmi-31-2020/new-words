@@ -10,20 +10,16 @@ namespace DAL.Repositories
 {
     class WordRepository
     {
-        private NpgsqlConnection connection;
-        public WordRepository(NpgsqlConnection connection)
+        private DataBase db;
+        public WordRepository(DataBase db)
         {
-            this.connection = connection;
+            this.db = db;
         }
 
         public void insertWord(Word word)
         {
-            connection.Open();
-            var cmd = new NpgsqlCommand();
-            cmd.Connection = connection;
-            cmd.CommandText = $"INSERT INTO words(word, translation, subject_id) VALUES('{word.word}','{word.translation}','{word.subjectId}')";
-            cmd.ExecuteNonQuery();
-            connection.Close();
+            db.words.Add(word);
+            db.SaveChanges();
         }
     }
 }

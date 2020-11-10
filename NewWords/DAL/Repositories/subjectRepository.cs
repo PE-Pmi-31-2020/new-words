@@ -11,38 +11,24 @@ namespace DAL.Repositories
 {
     class SubjectRepository
     {
-        private NpgsqlConnection connection;
-        public SubjectRepository(NpgsqlConnection connection)
+        private DataBase db;
+        public SubjectRepository(DataBase db)
         {
-            this.connection = connection;
+            this.db = db;
         }
+
         public List<Subject> getSubjects()
         {
-            connection.Open();
-            var cmd = new NpgsqlCommand();
-            cmd.Connection = connection;
-            cmd.CommandText = "SELECT * FROM subjects";
-            List<Subject> subjects = new List<Subject>();
-            NpgsqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                subjects.Add(new Subject(Convert.ToInt32(reader["id"].ToString()),
-                                                   reader["name"].ToString(),
-                                                   Convert.ToInt32(reader["user_id"].ToString())
-                                  ));
-            }
-            connection.Close();
-            return subjects;
+            var subjects = from s in db.subjects
+                        select s;
+
+            return subjects.ToList();
         }
 
         public void insertSubject(Subject subject)
         {
-            connection.Open();
-            var cmd = new NpgsqlCommand();
-            cmd.Connection = connection;
-            cmd.CommandText = $"INSERT INTO subjects(name, user_id) VALUES('{subject.name}','{subject.userId}')";
-            cmd.ExecuteNonQuery();
-            connection.Close();
+            db.subjects.Add(subject);
+            db.SaveChanges();
         }
     }
 }

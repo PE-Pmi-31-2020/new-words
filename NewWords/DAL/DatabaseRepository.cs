@@ -8,33 +8,42 @@ using Npgsql;
 using DAL.Models;
 using DAL.Repositories;
 using DAL.Utils;
+using System.IO;
 
 namespace DAL
 {
-    public class Db
+    public class DatabaseRepository
     {
-        private NpgsqlConnection createConnection()
+        DataBase db;
+        public DatabaseRepository(DataBase db)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            return new NpgsqlConnection(connectionString);
+            this.db = db;
         }
 
         public void getAllUsers()
         {
-            var connection = createConnection();
-            UserRepository userRepository = new UserRepository(connection);
+            UserRepository userRepository = new UserRepository(db);
             List<User> users = userRepository.getUsers();
+            string writePath = @"C:\Users\Дмитро\Desktop\test.txt";
+
+            using (StreamWriter sw = new StreamWriter(writePath, false, System.Text.Encoding.Default))
+            {
+                foreach (User user in users)
+                {
+                    sw.WriteLine(user.email);
+                }
+            }
         }
 
         public void insertTestData(int numberOfInsertions)
         {
-            var connection = createConnection();
-            UserRepository userRepository = new UserRepository(connection);
-            SubjectRepository subjectRepository = new SubjectRepository(connection);
-            WordRepository wordRepository = new WordRepository(connection);
+            UserRepository userRepository = new UserRepository(db);
+            SubjectRepository subjectRepository = new SubjectRepository(db);
+            WordRepository wordRepository = new WordRepository(db);
+
             Random random = new Random();
 
-            for (int i = 0; i < numberOfInsertions;i++)
+            for (int i = 0; i < numberOfInsertions; i++)
             {
                 User randomUser = new User(0, RandomDataGenerator.generateUsername(), RandomDataGenerator.generatePassword());
                 userRepository.insertUser(randomUser);

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using DAL;
+using DAL.Models;
 
 namespace NewWords
 {
@@ -18,8 +19,11 @@ namespace NewWords
         }
         private void createConnection()
         {
-            Db database = new Db();
-            // database.insertTestData(2);
+            using (DataBase db = new DataBase())
+            {
+                DatabaseRepository dbRepo = new DatabaseRepository(db);
+                // dbRepo.insertTestData(10);
+            }
         }
     }
 }
