@@ -19,19 +19,35 @@ namespace NewWords
     /// </summary>
     public partial class Library : Window
     {
+        private readonly string[] nebulas = { "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2", "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2" };
+
+        private void bindListBox()
+        {
+            words.ItemsSource = nebulas;
+        }
+
+        private void myListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show(words.SelectedItem.ToString(), "Nebulas", MessageBoxButton.OK,
+                MessageBoxImage.Information);
+        }
+
         public Library()
         {
-            List<User> items = new List<User>();
-            items.Add(new User() { Word = "John Doe"});
-            items.Add(new User() { Word = "Jane Doe" });
-            items.Add(new User() { Word = "Sammy Doe" });
-            lvUsers.ItemsSource = items;
+            InitializeComponent();
+            bindListBox();
+        }
+
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 
-    public class User
-    {
-        public string Word { get; set; }
-
-    }
 }
