@@ -26,8 +26,7 @@ namespace NewWords
                 this.words.SelectedItem.ToString(),
                 "Nebulas",
                 MessageBoxButton.OK,
-                icon: MessageBoxImage.Information
-            );
+                icon: MessageBoxImage.Information);
         }
 
         /// <summary>
@@ -47,5 +46,4 @@ namespace NewWords
         {
         }
     }
-
 }

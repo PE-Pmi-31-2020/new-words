@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="User.cs" company="DmytroAndDmytroAndDianaCompany">
+// Copyright (c) DmytroAndDmytroAndDianaCompany. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
 
 namespace DAL.Models
 {
@@ -10,12 +9,15 @@ namespace DAL.Models
     {
         public User(int id, string email, string password)
         {
-            this.id = id;
-            this.email = email;
-            this.password = password;
+            this.Id = id;
+            this.Email = email;
+            this.Password = password;
         }
-        public int id { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
+
+        public int Id { get; set; }
+
+        public string Email { get; set; }
+
+        public string Password { get; set; }
     }
 }

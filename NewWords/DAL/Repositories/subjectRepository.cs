@@ -1,34 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DAL.Models;
-using Npgsql;
-
+﻿// <copyright file="subjectRepository.cs" company="DmytroAndDmytroAndDianaCompany">
+// Copyright (c) DmytroAndDmytroAndDianaCompany. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
 
 namespace DAL.Repositories
 {
-    class SubjectRepository
+    using System.Collections.Generic;
+    using System.Linq;
+    using DAL.Models;
+
+    public class SubjectRepository
     {
-        private DataBase db;
+        private readonly DataBase db;
+
         public SubjectRepository(DataBase db)
         {
             this.db = db;
         }
 
-        public List<Subject> getSubjects()
+        public List<Subject> GetSubjects()
         {
-            var subjects = from s in db.subjects
+            var subjects = from s in this.db.subjects
                         select s;
 
             return subjects.ToList();
         }
 
-        public void insertSubject(Subject subject)
+        public void InsertSubject(Subject subject)
         {
-            db.subjects.Add(subject);
-            db.SaveChanges();
+            this.db.subjects.Add(subject);
+            this.db.SaveChanges();
         }
     }
 }

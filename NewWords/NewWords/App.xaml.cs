@@ -1,28 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using DAL;
-
+﻿// <copyright file="Card.xaml.cs" company="DmytroAndDmytroAndDianaCompany">
+// Copyright (c) DmytroAndDmytroAndDianaCompany. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
 
 namespace NewWords
 {
+    using System.Windows;
+    using DAL;
 
     public partial class App : Application
     {
         App()
         {
-            createConnection();
+            this.CreateConnection();
         }
-        private void createConnection()
+
+        private void CreateConnection()
         {
             using (DataBase db = new DataBase())
             {
                 DatabaseRepository dbRepo = new DatabaseRepository(db);
-                // dbRepo.insertTestData(10);
             }
         }
     }

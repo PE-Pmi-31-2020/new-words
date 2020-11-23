@@ -1,34 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DAL.Models;
-using Npgsql;
-
+﻿// <copyright file="userRepository.cs" company="DmytroAndDmytroAndDianaCompany">
+// Copyright (c) DmytroAndDmytroAndDianaCompany. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
 
 namespace DAL.Repositories
 {
-    class UserRepository
+    using System.Collections.Generic;
+    using System.Linq;
+    using DAL.Models;
+
+    public class UserRepository
     {
-        private DataBase db;
+        private readonly DataBase db;
+
         public UserRepository(DataBase db)
         {
             this.db = db;
         }
 
-        public List<User> getUsers()
+        public List<User> GetUsers()
         {
-            var users = from u in db.users
+            var users = from u in this.db.users
                         select u;
             return users.ToList();
         }
 
-        public void insertUser(User user)
+        public void InsertUser(User user)
         {
-            db.users.Add(user);
-            db.SaveChanges();
+            this.db.users.Add(user);
+            this.db.SaveChanges();
         }
-
     }
 }
