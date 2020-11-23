@@ -8,8 +8,8 @@
         Title="MainWindow" Height="450" Width="500">
     <Grid>
         <Button Content="START LEARNING&#xD;&#xA;" HorizontalAlignment="Left" Margin="99,95,0,0" VerticalAlignment="Top" Width="311" Height="70" FontSize="36" FontFamily="Segoe UI Semibold" FontWeight="Bold" Click="Button_Click"/>
-        <Button Content="Library" HorizontalAlignment="Left" Margin="99,195,0,0" VerticalAlignment="Top" Width="311" Height="37" RenderTransformOrigin="0.632,0.778" FontFamily="Segoe UI Semibold" FontSize="18" Click="Button_Click_1"/>
-        <Button Content="exit" HorizontalAlignment="Left" Margin="99,256,0,0" VerticalAlignment="Top" Width="311" FontFamily="Segoe UI Semibold" FontSize="16"/>
+        <Button Content="Library" HorizontalAlignment="Left" Margin="145,181,0,0" VerticalAlignment="Top" Width="217" Height="46" RenderTransformOrigin="0.632,0.778" FontFamily="Segoe UI Semibold" FontSize="18" Click="Button_Click_1"/>
+        <Button Content="exit" HorizontalAlignment="Left" Margin="194,248,0,0" VerticalAlignment="Top" Width="122" FontFamily="Segoe UI Semibold" FontSize="16" Height="28"/>
 
     </Grid>
 </Window>

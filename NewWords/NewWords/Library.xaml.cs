@@ -21,7 +21,17 @@ namespace NewWords
     {
         public Library()
         {
-            InitializeComponent();
+            List<User> items = new List<User>();
+            items.Add(new User() { Word = "John Doe"});
+            items.Add(new User() { Word = "Jane Doe" });
+            items.Add(new User() { Word = "Sammy Doe" });
+            lvUsers.ItemsSource = items;
         }
+    }
+
+    public class User
+    {
+        public string Word { get; set; }
+
     }
 }

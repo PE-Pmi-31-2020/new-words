@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="TranslatedCard" Height="450" Width="500">
     <Grid>
-        <Button Content="Translation&#xA;" HorizontalAlignment="Left" Margin="109,106,0,0" VerticalAlignment="Top" Width="239" Height="134" FontFamily="Segoe UI Semibold" Click="Button_Click_1" FontSize="48"/>
+        <Button Content="Translation&#xA;" HorizontalAlignment="Left" Margin="116,106,0,0" VerticalAlignment="Top" Width="239" Height="134" FontFamily="Segoe UI Semibold" Click="Button_Click_1" FontSize="48"/>
         <Button Content="exit" HorizontalAlignment="Left" Margin="54,257,0,0" VerticalAlignment="Top" Width="103" Height="30" FontFamily="Segoe UI Semibold"/>
         <Button Content="save" HorizontalAlignment="Left" Margin="179,257,0,0" VerticalAlignment="Top" Width="103" Height="30" FontFamily="Segoe UI Semibold"/>
         <Button Content="next" HorizontalAlignment="Left" Margin="297,257,0,0" VerticalAlignment="Top" Width="103" Height="30" FontFamily="Segoe UI Semibold"/>
-        <Button Content="subject" HorizontalAlignment="Left" Margin="85,57,0,0" VerticalAlignment="Top" Width="298" Height="30" Click="Button_Click" FontFamily="Segoe UI Semibold"/>
+        <Button Content="subject" HorizontalAlignment="Left" Margin="83,62,0,0" VerticalAlignment="Top" Width="298" Height="30" Click="Button_Click" FontFamily="Segoe UI Semibold"/>
 
     </Grid>
 </Window>

@@ -8,18 +8,9 @@
         Title="Library" Height="450" Width="500">
     <Grid>
         <ScrollViewer>
-            <StackPanel HorizontalAlignment="Left" Height="377" VerticalAlignment="Top" Width="474">
-                <Button Content="Button" Height="40" Margin="0,0,-0.4,0"/>
-                <Button Content="Button" Height="40" Margin="0,0,-0.4,0"/>
-                <Button Content="Button" Height="40" Margin="0,0,-0.4,0"/>
-                <Button Content="Button" Height="40" Margin="0,0,-0.4,0"/>
-                <Button Content="Button" Height="40" Margin="0,0,-0.4,0"/>
-                <Button Content="Button" Height="40" Margin="0,0,-0.4,0"/>
-                <Button Content="Button" Height="40" Margin="0,0,-0.4,0"/>
-                <Button Content="Button" Height="40" Margin="0,0,-0.4,0"/>
-                <Button Content="Button" Height="40" Margin="0,0,-0.4,0"/>
+            <Grid>
 
-            </StackPanel>
+            </Grid>
         </ScrollViewer>
         <Button Content="Back" HorizontalAlignment="Left" Margin="10,393,0,0" VerticalAlignment="Top" Width="77" Height="20"/>
 
