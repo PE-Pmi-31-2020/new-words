@@ -21,31 +21,27 @@ namespace NewWords
     /// </summary>
     public partial class Library : Window
     {
-        private string[] subjectNames;
+        private int sessionId;
         private void bindListBox()
         {
             using (DataBase db = new DataBase())
             {
                 DatabaseRepository dbRepo = new DatabaseRepository(db);
-                List<Subject> subjects = dbRepo.getAllSubjects();
-                subjectNames = new string[subjects.Count];
-                for(int i = 0; i < subjects.Count; i++)
-                {
-                    subjectNames[i] = subjects[i].name;
-                }
-                words.ItemsSource = subjectNames;
-                // dbRepo.insertTestData(10);
+                List<Subject> subjects = dbRepo.getAllSubjectsForUser(this.sessionId);
+                words.DisplayMemberPath = "name";
+                words.ItemsSource = subjects;
             }
         }
 
         private void myListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show(words.SelectedItem.ToString(), "Nebulas", MessageBoxButton.OK,
+            MessageBox.Show(((Subject)words.SelectedItem).name, "Subjects", MessageBoxButton.OK,
                 MessageBoxImage.Information);
         }
 
-        public Library()
+        public Library(int sessionId)
         {
+            this.sessionId = sessionId;
             InitializeComponent();
             bindListBox();
         }

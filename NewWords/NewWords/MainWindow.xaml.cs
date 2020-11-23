@@ -20,8 +20,10 @@ namespace NewWords
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private int sessionId;
+        public MainWindow(int sessionId)
         {
+            this.sessionId = sessionId;
             InitializeComponent();
         }
 
@@ -38,7 +40,7 @@ namespace NewWords
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Library library = new Library();
+            Library library = new Library(sessionId);
             library.Show();
         }
     }

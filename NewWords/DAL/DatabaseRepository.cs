@@ -24,17 +24,24 @@ namespace DAL
             List<User> users = userRepository.getUsers();
             return users;
         }
-        public List<Subject> getAllSubjects()
+        public List<Subject> getAllSubjectsForUser(int sessionId)
         {
             SubjectRepository subjectRepository = new SubjectRepository(db);
-            List<Subject> subjects = subjectRepository.getSubjects();
+            List<Subject> subjects = subjectRepository.getSubjects(sessionId);
             return subjects;
         }
 
-        public User findUser(string username, string password)
+        public User authenticateUser(string username, string password)
         {
             UserRepository userRepository = new UserRepository(db);
             User user = userRepository.getUser(username, password);
+            return user;
+        }
+
+        public User findUser(string username)
+        {
+            UserRepository userRepository = new UserRepository(db);
+            User user = userRepository.findUserByUsername(username);
             return user;
         }
 
@@ -66,7 +73,7 @@ namespace DAL
                 Subject randomSubject = new Subject(0, RandomDataGenerator.generateSubjectName(), users[random.Next(users.Count)].id);
                 subjectRepository.insertSubject(randomSubject);
             }
-            List<Subject> subjects = subjectRepository.getSubjects();
+            List<Subject> subjects = subjectRepository.getAllSubjects();
 
             for (int i = 0; i < numberOfInsertions; i++)
             {

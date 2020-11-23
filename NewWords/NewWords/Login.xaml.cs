@@ -33,10 +33,12 @@ namespace NewWords
             Authorization auth = new Authorization();
             if (auth.TryLogin(username, password))
             {
-                MainWindow mainWindow = new MainWindow();
+                MessageBox.Show("Successfully logged in!");
+                Session session = new Session();
+                int sessionId = session.getSessionId(username);
+                MainWindow mainWindow = new MainWindow(sessionId);
                 mainWindow.Show();
             }
-
         }
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)

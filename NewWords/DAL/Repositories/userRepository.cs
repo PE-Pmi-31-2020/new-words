@@ -27,11 +27,21 @@ namespace DAL.Repositories
         public User getUser(string username, string password)
         {
             var user = (from u in db.users
-                       where u.email == username && u.password == password
+                       where u.email == username && u.password == password.ToString()
                        select u).FirstOrDefault();
 
+            if (user != null) return user;
+            return new User("-1", "-1");
+        }
+
+        public User findUserByUsername(string username)
+        {
+            var user = (from u in db.users
+                        where u.email == username
+                        select u).FirstOrDefault();
+
             if (user != null) return (User)user;
-            return new User("0", "0");
+            return new User("-1", "-1");
         }
 
         public void createUser(User user)
