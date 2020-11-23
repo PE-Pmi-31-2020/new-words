@@ -38,6 +38,13 @@ namespace DAL
             return user;
         }
 
+        public void createUser(string username, string password)
+        {
+            UserRepository userRepository = new UserRepository(db);
+            User user = new User(username, password);
+            userRepository.createUser(user);
+        }
+
         public void insertTestData(int numberOfInsertions)
         {
             UserRepository userRepository = new UserRepository(db);
@@ -48,8 +55,8 @@ namespace DAL
 
             for (int i = 0; i < numberOfInsertions; i++)
             {
-                User randomUser = new User(0, RandomDataGenerator.generateUsername(), RandomDataGenerator.generatePassword());
-                userRepository.insertUser(randomUser);
+                User randomUser = new User(RandomDataGenerator.generateUsername(), RandomDataGenerator.generatePassword());
+                userRepository.createUser(randomUser);
             }
 
             List<User> users = userRepository.getUsers();

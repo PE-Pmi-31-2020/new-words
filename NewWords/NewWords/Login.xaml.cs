@@ -31,7 +31,6 @@ namespace NewWords
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Password;
             Authorization auth = new Authorization();
-            UsernameTextBox.Text = auth.TryLogin(username, password).ToString();
             if (auth.TryLogin(username, password))
             {
                 MainWindow mainWindow = new MainWindow();
@@ -42,7 +41,15 @@ namespace NewWords
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            string username = UsernameTextBox.Text;
+            string password = PasswordTextBox.Password;
+            Authorization auth = new Authorization();
+            if (auth.TrySignup(username, password))
+            {
+                MessageBox.Show("Successfully signed up!");
+                return;
+            }
+            MessageBox.Show("There is already a registered user with that email");
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

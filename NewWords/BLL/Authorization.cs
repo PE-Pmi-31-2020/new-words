@@ -15,7 +15,7 @@ namespace BLL
             {
                 DatabaseRepository dbRepo = new DatabaseRepository(db);
                 User user = dbRepo.findUser(email, password);
-                if(user.id == 0)
+                if(user.email == "0")
                 {
                     return false;
                 }
@@ -23,16 +23,17 @@ namespace BLL
             }
         }
 
-        public bool TrySignup(String email, String password, String confirmPassword)
+        public bool TrySignup(String email, String password)
         {
             using (DataBase db = new DataBase())
             {
                 DatabaseRepository dbRepo = new DatabaseRepository(db);
                 User user = dbRepo.findUser(email, password);
-                if (user.id == 0)
+                if (user.email != "0")
                 {
-                   // dbRepo.signUpUser(email, password, confirmPassword);
+                    return false;
                 }
+                dbRepo.createUser(email, password);
                 return true;
             }
         }

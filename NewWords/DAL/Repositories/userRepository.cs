@@ -31,10 +31,10 @@ namespace DAL.Repositories
                        select u).FirstOrDefault();
 
             if (user != null) return (User)user;
-            return new User(0,"0", "0");
+            return new User("0", "0");
         }
 
-        public void insertUser(User user)
+        public void createUser(User user)
         {
             db.users.Add(user);
             db.SaveChanges();
