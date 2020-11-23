@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30128.74
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1259
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewWords", "NewWords\NewWords.csproj", "{737A2FBF-FB6D-4901-9CB2-C9B22DEF1920}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{4DC3D2C8-1161-48C1-9EC7-CEFCA39AF6E9}"
+	ProjectSection(SolutionItems) = preProject
+		NewWords\App.config = NewWords\App.config
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{7AB9826D-F86C-45B4-A10B-753608292950}"
 EndProject

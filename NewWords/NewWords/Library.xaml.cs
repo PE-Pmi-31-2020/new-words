@@ -1,52 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿// <copyright file="Library.xaml.cs" company="DmytroAndDmytroAndDianaCompany">
+// Copyright (c) DmytroAndDmytroAndDianaCompany. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
 
 namespace NewWords
 {
+    using System.Windows;
+    using System.Windows.Controls;
+
     /// <summary>
-    /// Interaction logic for Library.xaml
+    /// Interaction logic for Library.xaml.
     /// </summary>
     public partial class Library : Window
     {
         private readonly string[] nebulas = { "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2", "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2" };
 
-        private void bindListBox()
+        private void BindListBox()
         {
-            words.ItemsSource = nebulas;
+            this.words.ItemsSource = this.nebulas;
         }
 
-        private void myListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void MyListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show(words.SelectedItem.ToString(), "Nebulas", MessageBoxButton.OK,
-                MessageBoxImage.Information);
+            MessageBox.Show(
+                this.words.SelectedItem.ToString(),
+                "Nebulas",
+                MessageBoxButton.OK,
+                icon: MessageBoxImage.Information
+            );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Library"/> class.
+        /// </summary>
         public Library()
         {
-            InitializeComponent();
-            bindListBox();
+            this.InitializeComponent();
+            this.BindListBox();
         }
-
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
         }
     }
 
