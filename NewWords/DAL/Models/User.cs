@@ -8,9 +8,8 @@ namespace DAL.Models
 {
     public class User
     {
-        public User(int id, string email, string password)
+        public User(string email, string password)
         {
-            this.id = id;
             this.email = email;
             this.password = password;
         }

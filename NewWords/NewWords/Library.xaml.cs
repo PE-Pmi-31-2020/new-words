@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DAL;
+using DAL.Models;
 
 namespace NewWords
 {
@@ -19,17 +21,22 @@ namespace NewWords
     /// </summary>
     public partial class Library : Window
     {
-        private readonly string[] newSubjects = { "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2", "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2" };
-        private readonly string[] newWords = { "FirstNew", "SecondNew", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2", "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2" };
 
+        private string[] subjectNames;
         private void bindListBox()
         {
-            subjects.ItemsSource = newSubjects;
-        }
-
-        private void bindListBoxForWords()
-        {
-            words.ItemsSource = newWords;
+            using (DataBase db = new DataBase())
+            {
+                DatabaseRepository dbRepo = new DatabaseRepository(db);
+                List<Subject> subjectsList = dbRepo.getAllSubjects();
+                subjectNames = new string[subjectsList.Count];
+                for(int i = 0; i < subjectsList.Count; i++)
+                {
+                    subjectNames[i] = subjectsList[i].name;
+                }
+                subjects.ItemsSource = subjectNames;
+                // dbRepo.insertTestData(10);
+            }
         }
 
         private void myListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -44,7 +51,6 @@ namespace NewWords
         {
             InitializeComponent();
             bindListBox();
-            bindListBoxForWords();
         }
 
 

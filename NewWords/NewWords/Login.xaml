@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="Login" Height="450" Width="500">
     <Grid>
-        <PasswordBox HorizontalAlignment="Left" Margin="191,173,0,0" VerticalAlignment="Top" Width="110" Height="26" FontSize="16" FontFamily="Segoe UI Emoji"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="191,134,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="110" RenderTransformOrigin="-1.01,0.548" FontSize="16" FontFamily="Segoe UI Emoji"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="191,173,0,0" Name="PasswordTextBox" VerticalAlignment="Top" Width="110" Height="26" FontSize="16" FontFamily="Segoe UI Emoji"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="191,134,0,0" Name="UsernameTextBox" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="110" RenderTransformOrigin="-1.01,0.548" FontSize="16" FontFamily="Segoe UI Emoji" TextChanged="TextBox_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="115,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontFamily="Segoe UI Emoji"><Run Text="Login"/><LineBreak/><Run/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="115,173,0,0" TextWrapping="Wrap" Text="Password " VerticalAlignment="Top" FontSize="16" FontFamily="Segoe UI Emoji"/>
-        <Button Content="Log in" HorizontalAlignment="Left" Margin="122,229,0,0" VerticalAlignment="Top" Width="107" Click="Button_Click" RenderTransformOrigin="-0.357,0.635" Height="29" FontSize="16" FontFamily="Segoe UI Emoji"/>
-        <Button Content="Sign up" HorizontalAlignment="Left" Margin="263,229,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="-0.432,1.302" Height="29" FontSize="16" FontFamily="Segoe UI Emoji" Click="Button_Click_1"/>
+        <Button Content="Log in" HorizontalAlignment="Left" Margin="122,229,0,0" VerticalAlignment="Top" Width="107" Click="LogInButton_Click" RenderTransformOrigin="-0.357,0.635" Height="29" FontSize="16" FontFamily="Segoe UI Emoji"/>
+        <Button Content="Sign up" HorizontalAlignment="Left" Margin="263,229,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="-0.432,1.302" Height="29" FontSize="16" FontFamily="Segoe UI Emoji" Click="SignUpButton_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="78,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" Height="81" FontSize="48" FontFamily="Comic Sans MS"><Run Text="NEW WORDS"/><LineBreak/><Run/></TextBlock>
 
 

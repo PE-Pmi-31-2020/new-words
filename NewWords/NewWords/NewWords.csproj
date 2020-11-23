@@ -215,6 +215,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{21fe81c9-e24a-4dbc-96d8-5459d5b6eb4d}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{7ab9826d-f86c-45b4-a10b-753608292950}</Project>
       <Name>DAL</Name>

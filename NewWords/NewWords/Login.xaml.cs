@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BLL;
+
 
 namespace NewWords
 {
@@ -26,16 +28,31 @@ namespace NewWords
 
         private void LogInButton_Click(object sender, RoutedEventArgs e)
         {
+            string username = UsernameTextBox.Text;
+            string password = PasswordTextBox.Password;
+            Authorization auth = new Authorization();
+            if (auth.TryLogin(username, password))
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+            }
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            string username = UsernameTextBox.Text;
+            string password = PasswordTextBox.Password;
+            Authorization auth = new Authorization();
+            if (auth.TrySignup(username, password))
+            {
+                MessageBox.Show("Successfully signed up!");
+                return;
+            }
+            MessageBox.Show("There is already a registered user with that email");
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
