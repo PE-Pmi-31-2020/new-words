@@ -10,36 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace NewWords
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Card.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Card : Window
     {
-        public MainWindow()
+        public Card()
         {
             InitializeComponent();
         }
 
-        private void startLearning_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Card card = new Card();
-            card.Show();
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Library library = new Library();
-            library.Show();
+            TranslatedCard translatedCard = new TranslatedCard();
+            translatedCard.Show();
         }
     }
 }
