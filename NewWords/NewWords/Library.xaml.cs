@@ -21,7 +21,7 @@ namespace NewWords
     /// </summary>
     public partial class Library : Window
     {
-
+        private string[] wordNames = { "word1", "word2", "word3", "word4", "word5", "word6", "word7" };
         private string[] subjectNames;
         private void bindListBox()
         {
@@ -36,6 +36,8 @@ namespace NewWords
                 }
                 subjects.ItemsSource = subjectNames;
                 // dbRepo.insertTestData(10);
+
+                words.ItemsSource = wordNames;
             }
         }
 
@@ -44,7 +46,10 @@ namespace NewWords
             //MessageBox.Show(subjects.SelectedItem.ToString(), "Nebulas", MessageBoxButton.OK,
             //    MessageBoxImage.Information);
             words.Visibility = Visibility.Visible;
-
+            addWord.Visibility = Visibility.Visible;
+            title.Content = "WORDS";
+            addSubject.Visibility = Visibility.Collapsed;
+            wordTextBox.Visibility = Visibility.Visible;
         }
 
         public Library()
@@ -53,27 +58,37 @@ namespace NewWords
             bindListBox();
         }
 
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //back button
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        
         private void backToSubject_Click(object sender, RoutedEventArgs e)
         {
+            words.Visibility = Visibility.Collapsed;
+            addWord.Visibility = Visibility.Collapsed;
+            title.Content = "SUBJECTS";
+            addSubject.Visibility = Visibility.Visible;
+        }
+
+        //
+        private void addWord_Click(object sender, RoutedEventArgs e)
+        {
 
         }
+
+        private void addSubject_Click(object sender, RoutedEventArgs e)
+        {
+            CreateSubject createSubject = new CreateSubject();
+            createSubject.Show();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 
 }

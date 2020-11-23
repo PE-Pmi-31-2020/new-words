@@ -15,28 +15,19 @@ using System.Windows.Shapes;
 namespace NewWords
 {
     /// <summary>
-    /// Interaction logic for Card.xaml
+    /// Interaction logic for CreateSubject.xaml
     /// </summary>
-    public partial class Card : Window
+    public partial class CreateSubject : Window
     {
-        bool ukr = true;
-        public Card()
+        public CreateSubject()
         {
             InitializeComponent();
         }
 
-        private void WordButton_Click(object sender, RoutedEventArgs e)
+        private void addSubjectButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ukr)
-            {
-                word.Content = "Translated";
-                ukr = false;
-            }
-            else
-            {
-                word.Content = "Card";
-                ukr = true;
-            }
+
         }
+
     }
 }
