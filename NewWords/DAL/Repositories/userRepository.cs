@@ -24,6 +24,16 @@ namespace DAL.Repositories
             return users.ToList();
         }
 
+        public User getUser(string username, string password)
+        {
+            var user = (from u in db.users
+                       where u.email == username && u.password == password
+                       select u).FirstOrDefault();
+
+            if (user != null) return (User)user;
+            return new User(0,"0", "0");
+        }
+
         public void insertUser(User user)
         {
             db.users.Add(user);

@@ -18,10 +18,24 @@ namespace DAL
             this.db = db;
         }
 
-        public void getAllUsers()
+        public List<User> getAllUsers()
         {
             UserRepository userRepository = new UserRepository(db);
             List<User> users = userRepository.getUsers();
+            return users;
+        }
+        public List<Subject> getAllSubjects()
+        {
+            SubjectRepository subjectRepository = new SubjectRepository(db);
+            List<Subject> subjects = subjectRepository.getSubjects();
+            return subjects;
+        }
+
+        public User findUser(string username, string password)
+        {
+            UserRepository userRepository = new UserRepository(db);
+            User user = userRepository.getUser(username, password);
+            return user;
         }
 
         public void insertTestData(int numberOfInsertions)

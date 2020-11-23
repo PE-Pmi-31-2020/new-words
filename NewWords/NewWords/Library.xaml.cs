@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DAL;
+using DAL.Models;
 
 namespace NewWords
 {
@@ -19,11 +21,21 @@ namespace NewWords
     /// </summary>
     public partial class Library : Window
     {
-        private readonly string[] nebulas = { "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2", "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2" };
-
+        private string[] subjectNames;
         private void bindListBox()
         {
-            words.ItemsSource = nebulas;
+            using (DataBase db = new DataBase())
+            {
+                DatabaseRepository dbRepo = new DatabaseRepository(db);
+                List<Subject> subjects = dbRepo.getAllSubjects();
+                subjectNames = new string[subjects.Count];
+                for(int i = 0; i < subjects.Count; i++)
+                {
+                    subjectNames[i] = subjects[i].name;
+                }
+                words.ItemsSource = subjectNames;
+                // dbRepo.insertTestData(10);
+            }
         }
 
         private void myListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
