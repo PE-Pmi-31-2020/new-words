@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using Npgsql;
 using DAL.Models;
 using DAL.Repositories;
 using DAL.Utils;
-using System.IO;
 
 namespace DAL
 {
@@ -24,15 +22,6 @@ namespace DAL
         {
             UserRepository userRepository = new UserRepository(db);
             List<User> users = userRepository.getUsers();
-            string writePath = @"C:\Users\Дмитро\Desktop\test.txt";
-
-            using (StreamWriter sw = new StreamWriter(writePath, false, System.Text.Encoding.Default))
-            {
-                foreach (User user in users)
-                {
-                    sw.WriteLine(user.email);
-                }
-            }
         }
 
         public void insertTestData(int numberOfInsertions)

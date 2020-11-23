@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DAL.Models;
 using System.Configuration;
-using Npgsql;
 
 namespace DAL
 {
