@@ -19,23 +19,32 @@ namespace NewWords
     /// </summary>
     public partial class Library : Window
     {
-        private readonly string[] nebulas = { "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2", "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2" };
+        private readonly string[] newSubjects = { "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2", "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2" };
+        private readonly string[] newWords = { "FirstNew", "SecondNew", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2", "First", "Second", "Third", "First1", "Second1", "Third1", "First2", "Second2", "Third2" };
 
         private void bindListBox()
         {
-            words.ItemsSource = nebulas;
+            subjects.ItemsSource = newSubjects;
+        }
+
+        private void bindListBoxForWords()
+        {
+            words.ItemsSource = newWords;
         }
 
         private void myListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show(words.SelectedItem.ToString(), "Nebulas", MessageBoxButton.OK,
-                MessageBoxImage.Information);
+            //MessageBox.Show(subjects.SelectedItem.ToString(), "Nebulas", MessageBoxButton.OK,
+            //    MessageBoxImage.Information);
+            words.Visibility = Visibility.Visible;
+
         }
 
         public Library()
         {
             InitializeComponent();
             bindListBox();
+            bindListBoxForWords();
         }
 
 
@@ -45,6 +54,17 @@ namespace NewWords
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //back button
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void backToSubject_Click(object sender, RoutedEventArgs e)
         {
 
         }
