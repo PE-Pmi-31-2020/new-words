@@ -21,46 +21,47 @@ namespace NewWords
     /// </summary>
     public partial class Library : Window
     {
-        private string[] wordNames = { "word1", "word2", "word3", "word4", "word5", "word6", "word7" };
-        private string[] fakeSubjectsNames = { "subject1", "subject2", "subject3", "subject4", "subject5", "subject6", "subject7", "subject1", "subject2", "subject3", "subject4", "subject5", "subject6", "subject7" };
         private int sessionId;
+        private List<Subject> subjectsList;
+        private List<Word> wordsList;
+        private int currentSubjectId;
 
         private void bindListBox()
         {
             using (DataBase db = new DataBase())
             {
                 DatabaseRepository dbRepo = new DatabaseRepository(db);
-
-                //List<Subject> subjectsList = dbRepo.getAllSubjects();
-                //subjectNames = new string[subjectsList.Count];
-                //for(int i = 0; i < subjectsList.Count; i++)
-                //{
-                //    subjectNames[i] = subjectsList[i].name;
-                //}
-                //subjects.ItemsSource = subjectNames;
-
-                List<Subject> subjectsList = dbRepo.getAllSubjectsForUser(this.sessionId);
+                subjectsList = dbRepo.getAllSubjectsForUser(this.sessionId);
                 subjects.DisplayMemberPath = "name";
                 subjects.ItemsSource = subjectsList;
-
-                //subjects.ItemsSource = fakeSubjectsNames;
-                //words.ItemsSource = wordNames;
             }
         }
 
-        private void myListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void subjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             words.Visibility = Visibility.Visible;
             addWord.Visibility = Visibility.Visible;
             title.Content = "WORDS";
             addSubject.Visibility = Visibility.Collapsed;
             wordTextBox.Visibility = Visibility.Visible;
-
-            //MessageBox.Show(((Subject)words.SelectedItem).name, "Subjects", MessageBoxButton.OK,
-            //    MessageBoxImage.Information);
+            using (DataBase db = new DataBase())
+            {
+                DatabaseRepository dbRepo = new DatabaseRepository(db);
+                currentSubjectId = ((Subject)subjects.SelectedItem).id;
+                wordsList = dbRepo.getAllWordsForSubject(currentSubjectId);
+                words.DisplayMemberPath = "word";
+                words.ItemsSource = wordsList;
+            }
+        }
+        private void words_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(words.SelectedItem != null)
+            {
+                MessageBox.Show(((Word)words.SelectedItem).translation);
+            }
         }
 
-        public Library(int sessionId)
+            public Library(int sessionId)
         {
             this.sessionId = sessionId;
             InitializeComponent();
@@ -78,12 +79,22 @@ namespace NewWords
 
         private void addWord_Click(object sender, RoutedEventArgs e)
         {
+            string[] wordInfo = wordTextBox.Text.Split(',');
+            using (DataBase db = new DataBase())
+            {
+                DatabaseRepository dbRepo = new DatabaseRepository(db);
+                dbRepo.addWord(wordInfo[0], wordInfo[1], currentSubjectId);
+                wordsList = dbRepo.getAllWordsForSubject(currentSubjectId);
+                words.DisplayMemberPath = "word";
+                words.ItemsSource = wordsList;
+            }
+            words.UpdateLayout();
 
         }
 
         private void addSubject_Click(object sender, RoutedEventArgs e)
         {
-            CreateSubject createSubject = new CreateSubject();
+            CreateSubject createSubject = new CreateSubject(sessionId);
             createSubject.Show();
         }
 

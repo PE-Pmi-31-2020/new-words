@@ -8,9 +8,9 @@
         Title="CreateSubject" Height="450" Width="500">
     <Grid>
         <Label x:Name="userLabel" Content="Label" HorizontalAlignment="Left" Margin="51,26,0,0" VerticalAlignment="Top" Width="105" FontWeight="Bold" FontStyle="Italic" FontSize="20"/>
-        <Button x:Name="addSubjectButton" Content="Add subject" HorizontalAlignment="Left" Margin="129,197,0,0" VerticalAlignment="Top" Width="237" Height="67" FontSize="36"/>
+        <Button x:Name="addSubjectButton" Content="Add subject" HorizontalAlignment="Left" Margin="129,197,0,0" VerticalAlignment="Top" Width="237" Height="67" FontSize="36" Click="addSubjectButton_Click"/>
         <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="55,357,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="forSubject" HorizontalAlignment="Left" Height="38" Margin="152,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191" FontSize="22" TextAlignment="Center"/>
+        <TextBox x:Name="subjectNameTextBox" HorizontalAlignment="Left" Height="38" Margin="152,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191" FontSize="22" TextAlignment="Center"/>
 
     </Grid>
 </Window>

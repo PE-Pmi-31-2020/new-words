@@ -30,6 +30,12 @@ namespace DAL
             List<Subject> subjects = subjectRepository.getSubjects(sessionId);
             return subjects;
         }
+        public List<Word> getAllWordsForSubject(int subjectId)
+        {
+            WordRepository wordRepository = new WordRepository(db);
+            List<Word> words = wordRepository.getWords(subjectId);
+            return words;
+        }
 
         public User authenticateUser(string username, string password)
         {
@@ -52,6 +58,20 @@ namespace DAL
             userRepository.createUser(user);
         }
 
+        public void addWord(string word, string translation, int subjectId)
+        {
+            WordRepository wordRepository = new WordRepository(db);
+            Word wordToAdd = new Word(word, translation, subjectId);
+            wordRepository.addWord(wordToAdd);
+        }
+
+        public void addSubject(string subjectName, int sessionId)
+        {
+            SubjectRepository subjectRepository = new SubjectRepository(db);
+            Subject subject = new Subject(subjectName, sessionId);
+            subjectRepository.addSubject(subject);
+        }
+
         public void insertTestData(int numberOfInsertions)
         {
             UserRepository userRepository = new UserRepository(db);
@@ -70,16 +90,16 @@ namespace DAL
 
             for (int i = 0; i < numberOfInsertions; i++)
             {
-                Subject randomSubject = new Subject(0, RandomDataGenerator.generateSubjectName(), users[random.Next(users.Count)].id);
-                subjectRepository.insertSubject(randomSubject);
+                Subject randomSubject = new Subject(RandomDataGenerator.generateSubjectName(), users[random.Next(users.Count)].id);
+                subjectRepository.addSubject(randomSubject);
             }
             List<Subject> subjects = subjectRepository.getAllSubjects();
 
             for (int i = 0; i < numberOfInsertions; i++)
             {
                 KeyValuePair<string, string> word = RandomDataGenerator.generateWord();
-                Word randomWord = new Word(0, word.Key, word.Value, subjects[random.Next(subjects.Count)].id);
-                wordRepository.insertWord(randomWord);
+                Word randomWord = new Word( word.Key, word.Value, subjects[random.Next(subjects.Count)].id);
+                wordRepository.addWord(randomWord);
             }
         }
     }

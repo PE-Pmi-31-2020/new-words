@@ -8,9 +8,8 @@ namespace DAL.Models
 {
     public class Word
     {
-        public Word(int id, string word, string translation, int subject_id)
+        public Word(string word, string translation, int subject_id)
         {
-            this.id = id;
             this.word = word;
             this.translation = translation;
             this.subject_id = subject_id;

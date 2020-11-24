@@ -16,10 +16,18 @@ namespace DAL.Repositories
             this.db = db;
         }
 
-        public void insertWord(Word word)
+        public void addWord(Word word)
         {
             db.words.Add(word);
             db.SaveChanges();
+        }
+        public List<Word> getWords(int subjectId)
+        {
+            var words = from w in db.words
+                           where w.subject_id == subjectId
+                           select w;
+
+            return words.ToList();
         }
     }
 }

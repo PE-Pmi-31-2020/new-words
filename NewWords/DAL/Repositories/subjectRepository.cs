@@ -33,7 +33,7 @@ namespace DAL.Repositories
             return subjects.ToList();
         }
 
-        public void insertSubject(Subject subject)
+        public void addSubject(Subject subject)
         {
             db.subjects.Add(subject);
             db.SaveChanges();

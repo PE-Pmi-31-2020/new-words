@@ -8,9 +8,8 @@ namespace DAL.Models
 {
     public class Subject
     {
-        public Subject(int id, string name, int user_id)
+        public Subject(string name, int user_id)
         {
-            this.id = id;
             this.name = name;
             this.user_id = user_id;
         }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DAL;
 
 namespace NewWords
 {
@@ -19,15 +20,23 @@ namespace NewWords
     /// </summary>
     public partial class CreateSubject : Window
     {
-        public CreateSubject()
+        private int sessionId;
+        public CreateSubject(int sessionId)
         {
+            this.sessionId = sessionId;
             InitializeComponent();
         }
 
         private void addSubjectButton_Click(object sender, RoutedEventArgs e)
         {
-
+            string subjectName = subjectNameTextBox.Text;
+            using (DataBase db = new DataBase())
+            {
+                DatabaseRepository dbRepo = new DatabaseRepository(db);
+                dbRepo.addSubject(subjectName, sessionId);
+            }
+            subjectNameTextBox.Clear();
+            this.Close();
         }
-
     }
 }
