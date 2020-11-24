@@ -20,26 +20,28 @@ namespace NewWords
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private int sessionId;
+        public MainWindow(int sessionId)
         {
+            this.sessionId = sessionId;
             InitializeComponent();
         }
 
-        private void startLearning_Click(object sender, RoutedEventArgs e)
+        private void LibraryButton_Click_1(object sender, RoutedEventArgs e)
         {
-
+            Library library = new Library(sessionId);
+            library.Show();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             Card card = new Card();
             card.Show();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ExitExitButton_Click(object sender, RoutedEventArgs e)
         {
-            Library library = new Library();
-            library.Show();
+            this.Close();
         }
     }
 }

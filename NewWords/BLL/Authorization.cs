@@ -9,13 +9,13 @@ namespace BLL
     public class Authorization
     {
 
-        public bool TryLogin(String email, String password)
+        public bool TryLogin(string email, string password)
         {
             using (DataBase db = new DataBase())
             {
                 DatabaseRepository dbRepo = new DatabaseRepository(db);
-                User user = dbRepo.findUser(email, password);
-                if(user.email == "0")
+                User user = dbRepo.authenticateUser(email, password);
+                if(user.email == "-1")
                 {
                     return false;
                 }
@@ -23,13 +23,13 @@ namespace BLL
             }
         }
 
-        public bool TrySignup(String email, String password)
+        public bool TrySignup(string email, string password)
         {
             using (DataBase db = new DataBase())
             {
                 DatabaseRepository dbRepo = new DatabaseRepository(db);
-                User user = dbRepo.findUser(email, password);
-                if (user.email != "0")
+                User user = dbRepo.authenticateUser(email, password);
+                if (user.email != "-1")
                 {
                     return false;
                 }

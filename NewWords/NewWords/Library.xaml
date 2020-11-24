@@ -18,7 +18,7 @@
             <TextBox HorizontalAlignment="Left" Height="26" Margin="322,260,0,0" x:Name="wordTextBox"  Visibility="Collapsed" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="140" RenderTransformOrigin="-1.01,0.548" FontSize="16" FontFamily="Segoe UI Emoji"/>
             <Button x:Name="addSubject" Content="addSubject"  Visibility="Visible" HorizontalAlignment="Left" Margin="353,167,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.064,-0.302" Click="addSubject_Click"/>
         </Grid>
-        <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="10,371,0,0" VerticalAlignment="Top" Width="77" Height="20"/>
+        <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="10,371,0,0" VerticalAlignment="Top" Width="77" Height="20" Click="back_Click"/>
 
     </Grid>
 </Window>

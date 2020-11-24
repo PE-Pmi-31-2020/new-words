@@ -16,11 +16,19 @@ namespace DAL.Repositories
         {
             this.db = db;
         }
-
-        public List<Subject> getSubjects()
+        public List<Subject> getAllSubjects()
         {
             var subjects = from s in db.subjects
-                        select s;
+                           select s;
+
+            return subjects.ToList();
+        }
+        
+        public List<Subject> getSubjects(int sessionId)
+        {
+            var subjects = from s in db.subjects
+                           where s.user_id == sessionId
+                           select s;
 
             return subjects.ToList();
         }

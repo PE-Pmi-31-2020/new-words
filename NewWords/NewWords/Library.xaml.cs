@@ -22,38 +22,47 @@ namespace NewWords
     public partial class Library : Window
     {
         private string[] wordNames = { "word1", "word2", "word3", "word4", "word5", "word6", "word7" };
-        private string[] subjectNames;
+        private string[] fakeSubjectsNames = { "subject1", "subject2", "subject3", "subject4", "subject5", "subject6", "subject7", "subject1", "subject2", "subject3", "subject4", "subject5", "subject6", "subject7" };
+        private int sessionId;
+
         private void bindListBox()
         {
             using (DataBase db = new DataBase())
             {
                 DatabaseRepository dbRepo = new DatabaseRepository(db);
-                List<Subject> subjectsList = dbRepo.getAllSubjects();
-                subjectNames = new string[subjectsList.Count];
-                for(int i = 0; i < subjectsList.Count; i++)
-                {
-                    subjectNames[i] = subjectsList[i].name;
-                }
-                subjects.ItemsSource = subjectNames;
-                // dbRepo.insertTestData(10);
 
-                words.ItemsSource = wordNames;
+                //List<Subject> subjectsList = dbRepo.getAllSubjects();
+                //subjectNames = new string[subjectsList.Count];
+                //for(int i = 0; i < subjectsList.Count; i++)
+                //{
+                //    subjectNames[i] = subjectsList[i].name;
+                //}
+                //subjects.ItemsSource = subjectNames;
+
+                List<Subject> subjectsList = dbRepo.getAllSubjectsForUser(this.sessionId);
+                subjects.DisplayMemberPath = "name";
+                subjects.ItemsSource = subjectsList;
+
+                //subjects.ItemsSource = fakeSubjectsNames;
+                //words.ItemsSource = wordNames;
             }
         }
 
         private void myListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //MessageBox.Show(subjects.SelectedItem.ToString(), "Nebulas", MessageBoxButton.OK,
-            //    MessageBoxImage.Information);
             words.Visibility = Visibility.Visible;
             addWord.Visibility = Visibility.Visible;
             title.Content = "WORDS";
             addSubject.Visibility = Visibility.Collapsed;
             wordTextBox.Visibility = Visibility.Visible;
+
+            //MessageBox.Show(((Subject)words.SelectedItem).name, "Subjects", MessageBoxButton.OK,
+            //    MessageBoxImage.Information);
         }
 
-        public Library()
+        public Library(int sessionId)
         {
+            this.sessionId = sessionId;
             InitializeComponent();
             bindListBox();
         }
@@ -67,7 +76,6 @@ namespace NewWords
             addSubject.Visibility = Visibility.Visible;
         }
 
-        //
         private void addWord_Click(object sender, RoutedEventArgs e)
         {
 
@@ -89,6 +97,10 @@ namespace NewWords
 
         }
 
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }
