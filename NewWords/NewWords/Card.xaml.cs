@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DAL.Models;
 
 namespace NewWords
 {
@@ -19,29 +20,46 @@ namespace NewWords
     /// </summary>
     public partial class Card : Window
     {
-        bool ukr = true;
-        public Card()
+        private List<Word> words;
+        public Card(List<Word> words)
         {
+            this.words = words;
             InitializeComponent();
+            word.Content = words[words.Count - 1].word;
         }
 
         private void WordButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ukr)
-            {
-                word.Content = "Translated";
-                ukr = false;
-            }
-            else
-            {
-                word.Content = "Card";
-                ukr = true;
-            }
+            word.Content = words[words.Count - 1].translation;
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void next_Click(object sender, RoutedEventArgs e)
+        {
+            if(words.Count != 0)
+            {
+                words.RemoveAt(words.Count - 1);
+                if (words.Count != 0)
+                {
+                    word.Content = words[words.Count - 1].word;
+                }
+                else
+                {
+                    MessageBox.Show("You won!");
+                }
+            }
+        }
+
+        private void save_Click(object sender, RoutedEventArgs e)
+        {
+            words.Insert(0, words[words.Count - 1]);
+            words.RemoveAt(words.Count - 1);
+            word.Content = words[words.Count - 1].word;
+
         }
     }
 }

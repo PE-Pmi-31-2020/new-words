@@ -9,15 +9,16 @@
     <Grid>
         <Grid>
             <Label x:Name="title" Content="SUBJECTS" HorizontalAlignment="Left" Margin="196,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.723,0.984" FontSize="22"/>
-            <ListBox x:Name="subjects" HorizontalAlignment="Left" Height="258" Margin="19,52,0,0" Width="281" VerticalAlignment="Top" SelectionChanged="subjects_SelectionChanged"/>
-            <ListBox x:Name="words" Visibility="Collapsed" HorizontalAlignment="Left" Height="258" Margin="19,52,0,0" Width="281" VerticalAlignment="Top" SelectionChanged="words_SelectionChanged"/>
-            <Button x:Name="edit" Content="Edit" HorizontalAlignment="Left" Margin="353,73,0,0" VerticalAlignment="Top" Width="75" Click="EditButton_Click"/>
-            <Button x:Name="delete" Content="Delete" HorizontalAlignment="Left" Margin="353,111,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.027,-0.021" Click="DeleteButton_Click"/>
+            <ListBox x:Name="subjects" HorizontalAlignment="Left" Height="258" Margin="19,52,0,0" Width="281" VerticalAlignment="Top" MouseDoubleClick="subjects_MouseDoubleClick" SelectionChanged="subjects_SelectionChanged"/>
+            <ListBox x:Name="words" Visibility="Collapsed" HorizontalAlignment="Left" Height="258" Margin="19,52,0,0" Width="281" VerticalAlignment="Top" MouseDoubleClick="words_MouseDoubleClick" SelectionChanged="words_SelectionChanged"/>
+            <Button x:Name="editWord" Content="Edit" Visibility="Collapsed" HorizontalAlignment="Left" Margin="353,73,0,0" VerticalAlignment="Top" Width="75" Click="EditWordButton_Click"/>
+            <Button x:Name="deleteSubject" Content="Delete" HorizontalAlignment="Left" Margin="353,111,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.027,-0.021" Click="DeleteSubjectButton_Click"/>
             <Button x:Name="backToSubject" Content="Path" HorizontalAlignment="Left" Margin="19,33,0,0" VerticalAlignment="Top" Width="75" Click="backToSubject_Click"/>
             <Button x:Name="addWord" Content="Add Word" Visibility="Collapsed" HorizontalAlignment="Left" Margin="353,291,0,0" VerticalAlignment="Top" Width="75" Click="addWord_Click"/>
             <TextBox HorizontalAlignment="Left" Height="26" Margin="322,260,0,0" x:Name="wordTextBox"  Visibility="Collapsed" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="140" RenderTransformOrigin="-1.01,0.548" FontSize="16" FontFamily="Segoe UI Emoji"/>
             <Button x:Name="addSubjectButton" Content="Add subject" Visibility="Visible" HorizontalAlignment="Left" Margin="316,237,0,0" VerticalAlignment="Top" Width="146" Height="50" FontSize="18" Click="addSubjectButton_Click"/>
             <TextBox x:Name="subjectNameTextBox" Visibility="Visible" HorizontalAlignment="Left" Height="29" Margin="329,203,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118" FontSize="22" TextAlignment="Center"/>
+            <Button x:Name="deleteWord" Content="Delete" HorizontalAlignment="Left" Margin="353,111,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.027,-0.021" Click="DeleteWordButton_Click"/>
         </Grid>
         <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="10,371,0,0" VerticalAlignment="Top" Width="77" Height="20" Click="back_Click"/>
 

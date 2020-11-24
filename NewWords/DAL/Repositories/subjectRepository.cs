@@ -33,6 +33,13 @@ namespace DAL.Repositories
             return subjects.ToList();
         }
 
+        public void deleteSubject(int subjectId)
+        {
+            Subject subjectToDelete = db.subjects.Find(subjectId);
+            db.subjects.Remove(subjectToDelete);
+            db.SaveChanges();
+        }
+
         public void addSubject(Subject subject)
         {
             db.subjects.Add(subject);

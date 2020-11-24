@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BLL;
+
 
 namespace NewWords
 {
@@ -35,7 +37,8 @@ namespace NewWords
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            Card card = new Card();
+            Game game = new Game(sessionId);
+            Card card = new Card(game.startGame());
             card.Show();
         }
 

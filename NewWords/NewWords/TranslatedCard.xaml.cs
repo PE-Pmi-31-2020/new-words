@@ -31,8 +31,8 @@ namespace NewWords
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Card card = new Card();
-            card.Show();
+            //Card card = new Card();
+            //card.Show();
         }
     }
 }

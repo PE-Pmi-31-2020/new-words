@@ -29,5 +29,18 @@ namespace DAL.Repositories
 
             return words.ToList();
         }
+
+        public void deleteWordsOfSubject(int subjectId)
+        {
+            db.words.RemoveRange(db.words.Where(x => x.subject_id == subjectId));
+            db.SaveChanges();
+        }
+
+        public void deleteWord(int wordId)
+        {
+            Word wordToDelete = db.words.Find(wordId);
+            db.words.Remove(wordToDelete);
+            db.SaveChanges();
+        }
     }
 }

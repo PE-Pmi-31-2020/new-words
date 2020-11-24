@@ -65,11 +65,36 @@ namespace DAL
             wordRepository.addWord(wordToAdd);
         }
 
+        public void deleteWord(int wordId)
+        {
+            WordRepository wordRepository = new WordRepository(db);
+            wordRepository.deleteWord(wordId);
+        }
+        public List<Word> getAllWords(int sessionId)
+        {
+            SubjectRepository subjectRepository = new SubjectRepository(db);
+            WordRepository wordRepository = new WordRepository(db);
+            List<Word> words = new List<Word>();
+            List<Subject> subjectsForUser = subjectRepository.getSubjects(sessionId);
+            for(int i = 0; i< subjectsForUser.Count; i++)
+            {
+                words.AddRange(wordRepository.getWords(subjectsForUser[i].id));
+            }
+            return words;
+        }
+
         public void addSubject(string subjectName, int sessionId)
         {
             SubjectRepository subjectRepository = new SubjectRepository(db);
             Subject subject = new Subject(subjectName, sessionId);
             subjectRepository.addSubject(subject);
+        }
+        public void deleteSubject(int subjectId)
+        {
+            SubjectRepository subjectRepository = new SubjectRepository(db);
+            WordRepository wordRepository = new WordRepository(db);
+            wordRepository.deleteWordsOfSubject(subjectId);
+            subjectRepository.deleteSubject(subjectId);
         }
 
         public void insertTestData(int numberOfInsertions)
