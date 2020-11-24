@@ -42,7 +42,8 @@ namespace NewWords
             words.Visibility = Visibility.Visible;
             addWord.Visibility = Visibility.Visible;
             title.Content = "WORDS";
-            addSubject.Visibility = Visibility.Collapsed;
+            addSubjectButton.Visibility = Visibility.Collapsed;
+            subjectNameTextBox.Visibility = Visibility.Collapsed;
             wordTextBox.Visibility = Visibility.Visible;
             using (DataBase db = new DataBase())
             {
@@ -74,7 +75,8 @@ namespace NewWords
             words.Visibility = Visibility.Collapsed;
             addWord.Visibility = Visibility.Collapsed;
             title.Content = "SUBJECTS";
-            addSubject.Visibility = Visibility.Visible;
+            addSubjectButton.Visibility = Visibility.Visible;
+            subjectNameTextBox.Visibility = Visibility.Visible;
         }
 
         private void addWord_Click(object sender, RoutedEventArgs e)
@@ -92,12 +94,6 @@ namespace NewWords
 
         }
 
-        private void addSubject_Click(object sender, RoutedEventArgs e)
-        {
-            CreateSubject createSubject = new CreateSubject(sessionId);
-            createSubject.Show();
-        }
-
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -111,6 +107,11 @@ namespace NewWords
         private void back_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void addSubjectButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 
