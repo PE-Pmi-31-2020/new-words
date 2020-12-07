@@ -189,7 +189,7 @@
     </Window.Resources>
     <Grid>
         <PasswordBox HorizontalAlignment="Left" Margin="191,173,0,0" Name="PasswordTextBox" VerticalAlignment="Top" Width="179" Height="26" FontSize="16" FontFamily="Segoe UI Emoji" Style="{DynamicResource PasswordBoxStyle1}"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="191,134,0,0" Name="UsernameTextBox" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="179" RenderTransformOrigin="-1.01,0.548" FontSize="16" FontFamily="Segoe UI Emoji" TextChanged="TextBox_TextChanged" Style="{DynamicResource TextBoxStyle1}"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="191,134,0,0" Name="UsernameTextBox" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="179" RenderTransformOrigin="-1.01,0.548" FontSize="16" FontFamily="Segoe UI Emoji" TextChanged="Username_TextChanged" Style="{DynamicResource TextBoxStyle1}"/>
         <TextBlock HorizontalAlignment="Left" Margin="136,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontFamily="Segoe UI Emoji" Width="50" Height="26"><Run Text="LOGIN"/><LineBreak/><Run/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="99,173,0,0" TextWrapping="Wrap" Text="PASSWORD" VerticalAlignment="Top" FontSize="16" FontFamily="Segoe UI Emoji" Height="26" Width="87"/>
         <Button Content="Log in" HorizontalAlignment="Left" Margin="191,263,0,0" VerticalAlignment="Top" Width="118" Click="LogInButton_Click" RenderTransformOrigin="-0.357,0.635" Height="29" FontSize="16" FontFamily="Segoe UI Emoji" Style="{DynamicResource ButtonStyle1}"/>
