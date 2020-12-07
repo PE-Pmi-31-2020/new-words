@@ -36,6 +36,18 @@ namespace DAL.Repositories
             db.SaveChanges();
         }
 
+        public void editWord(int wordId, string word, string translation)
+        {
+            Word wordToEdit = db.words.First(w => w.id == wordId);
+            if(wordToEdit != null)
+            {
+                wordToEdit.word = word;
+                wordToEdit.translation = translation;
+                db.SaveChanges();
+            }
+
+        }
+
         public void deleteWord(int wordId)
         {
             Word wordToDelete = db.words.Find(wordId);

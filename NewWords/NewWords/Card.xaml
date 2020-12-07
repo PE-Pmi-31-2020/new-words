@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="Card" Height="450" Width="500">
     <Grid>
-        <Button x:Name="word" Content="Word" HorizontalAlignment="Left" Margin="123,123,0,0" VerticalAlignment="Top" Width="239" Height="134" FontFamily="Segoe UI Semibold" Click="WordButton_Click" FontSize="48"/>
-        <Button x:Name="exit" Content="exit" HorizontalAlignment="Left" Margin="68,274,0,0" VerticalAlignment="Top" Width="103" Height="30" FontFamily="Segoe UI Semibold" Click="exit_Click"/>
-        <Button x:Name="save" Content="save" Click="save_Click" HorizontalAlignment="Left" Margin="193,274,0,0" VerticalAlignment="Top" Width="103" Height="30" FontFamily="Segoe UI Semibold"/>
-        <Button x:Name="next" Content="next" Click="next_Click" HorizontalAlignment="Left" Margin="311,274,0,0" VerticalAlignment="Top" Width="103" Height="30" FontFamily="Segoe UI Semibold"/>
-        <Button x:Name="subject" Content="subject" HorizontalAlignment="Left" Margin="99,74,0,0" VerticalAlignment="Top" Width="298" Height="30" FontFamily="Segoe UI Semibold"/>
+        <Button x:Name="word" Content="Word" HorizontalAlignment="Left" Margin="27,120,0,0" VerticalAlignment="Top" Width="436" Height="124" FontFamily="Helvetica" Click="WordButton_Click" FontSize="48"/>
+        <Button x:Name="exit" Content="EXIT" HorizontalAlignment="Left" Margin="10,379,0,0" VerticalAlignment="Top" Width="103" Height="30" FontFamily="Helvetica" Click="exit_Click"/>
+        <Button x:Name="save" Content="SAVE" HorizontalAlignment="Left" Margin="27,281,0,0" VerticalAlignment="Top" Width="103" Height="30" FontFamily="Helvetica" Click="save_Click"/>
+        <Button x:Name="next" Content="NEXT" HorizontalAlignment="Left" Margin="360,281,0,0" VerticalAlignment="Top" Width="103" Height="30" FontFamily="Helvetica" RenderTransformOrigin="1.35,0.467" Click="next_Click" />
+        <Button x:Name="subject" Content="SUBJECT" HorizontalAlignment="Left" Margin="110,35,0,0" VerticalAlignment="Top" Width="288" Height="30" FontFamily="Helvetica"/>
 
     </Grid>
 </Window>
