@@ -10,6 +10,8 @@ namespace BLL
 {
     public class Game
     {
+        private ILogger logger = new FileLogger("./logs.log");
+
         private int sessionId;
         public Game(int sessionId)
         {
@@ -21,6 +23,7 @@ namespace BLL
             {
                 DatabaseRepository dbRepo = new DatabaseRepository(db);
                 List<Word> words = dbRepo.getAllWords(sessionId);
+                logger.Info("Successfully started the game. Number of words to go: " + words.Count.ToString());
                 return words;
             }
         }

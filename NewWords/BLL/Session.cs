@@ -10,6 +10,7 @@ namespace BLL
 {
     public class Session
     {
+        private ILogger logger = new FileLogger("./logs.log");
 
         public int getSessionId(string username)
         {
@@ -19,8 +20,10 @@ namespace BLL
                 User user = dbRepo.findUser(username);
                 if (user.email == "0")
                 {
+                    this.logger.Error("User with username " + username + ". Does not exist.");
                     return -1;
                 }
+                this.logger.Info("Found user with username " + username);
                 return user.id;
             }
         }
