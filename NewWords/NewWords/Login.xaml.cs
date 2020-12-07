@@ -39,6 +39,8 @@ namespace NewWords
                 MainWindow mainWindow = new MainWindow(sessionId);
                 mainWindow.Show();
             }
+
+            MessageBox.Show("Invalid credentials.");
         }
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
@@ -54,9 +56,8 @@ namespace NewWords
             MessageBox.Show("There is already a registered user with that email");
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void Username_TextChanged(object sender, TextChangedEventArgs e)
         {
-
         }
 
         private void exitButton_Click(object sender, RoutedEventArgs e)
