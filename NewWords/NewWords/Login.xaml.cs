@@ -39,8 +39,12 @@ namespace NewWords
                 MainWindow mainWindow = new MainWindow(sessionId);
                 mainWindow.Show();
             }
+            else
+            {
+                MessageBox.Show("Invalid credentials.");
+            }
 
-            MessageBox.Show("Invalid credentials.");
+            
         }
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)

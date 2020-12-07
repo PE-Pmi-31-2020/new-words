@@ -21,7 +21,7 @@
             <Button x:Name="addSubjectButton" Content="Add subject" Visibility="Visible" HorizontalAlignment="Left" Margin="316,237,0,0" VerticalAlignment="Top" Width="146" Height="50" FontSize="18" Click="addSubjectButton_Click"/>
             <TextBox x:Name="subjectNameTextBox" Visibility="Visible" HorizontalAlignment="Left" Height="29" Margin="329,203,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118" FontSize="22" TextAlignment="Center"/>
             <Button x:Name="deleteWord" Content="Delete" Visibility="Collapsed" HorizontalAlignment="Left" Margin="353,111,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.027,-0.021" Click="DeleteWordButton_Click"/>
-            <Label x:Name="rule" Content="To add word type it in&#xA;next format: 'Word,Translation'" Visibility="Collapsed" HorizontalAlignment="Left" Margin="305,159,0,0" VerticalAlignment="Top" Width="179" Height="44" FontStyle="Italic"/>
+            <Label x:Name="rule" Content="To add word type use&#xA;next format: 'Word,Translation'" Visibility="Collapsed" HorizontalAlignment="Left" Margin="305,176,0,0" VerticalAlignment="Top" Width="179" Height="44" FontStyle="Italic"/>
         </Grid>
         <Button x:Name="back" Content="Back" HorizontalAlignment="Left" Margin="10,371,0,0" VerticalAlignment="Top" Width="77" Height="20" Click="back_Click"/>
 
