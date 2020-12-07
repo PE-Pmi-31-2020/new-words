@@ -57,6 +57,8 @@ namespace NewWords
             addWord.Visibility = Visibility.Collapsed;
             deleteWord.Visibility = Visibility.Collapsed;
             editWord.Visibility = Visibility.Collapsed;
+            rule.Visibility = Visibility.Collapsed;
+            backToSubject.Content = "subjects";
             title.Content = "SUBJECTS";
             addSubjectButton.Visibility = Visibility.Visible;
             subjectNameTextBox.Visibility = Visibility.Visible;
@@ -143,7 +145,9 @@ namespace NewWords
             addWord.Visibility = Visibility.Visible;
             deleteWord.Visibility = Visibility.Visible;
             editWord.Visibility = Visibility.Visible;
+            rule.Visibility = Visibility.Visible;
             title.Content = "WORDS";
+            backToSubject.Content = "<- subjects/" + ((Subject)subjects.SelectedItem).name;
             addSubjectButton.Visibility = Visibility.Collapsed;
             subjectNameTextBox.Visibility = Visibility.Collapsed;
             wordTextBox.Visibility = Visibility.Visible;

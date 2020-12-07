@@ -13,7 +13,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="115,173,0,0" TextWrapping="Wrap" Text="Password " VerticalAlignment="Top" FontSize="16" FontFamily="Segoe UI Emoji"/>
         <Button Content="Log in" HorizontalAlignment="Left" Margin="122,229,0,0" VerticalAlignment="Top" Width="107" Click="LogInButton_Click" RenderTransformOrigin="-0.357,0.635" Height="29" FontSize="16" FontFamily="Segoe UI Emoji"/>
         <Button Content="Sign up" HorizontalAlignment="Left" Margin="263,229,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="-0.432,1.302" Height="29" FontSize="16" FontFamily="Segoe UI Emoji" Click="SignUpButton_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="78,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" Height="81" FontSize="48" FontFamily="Comic Sans MS"><Run Text="NEW WORDS"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="78,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" Height="81" FontSize="48" FontFamily="MV Boli" Foreground="Black" FontWeight="Bold"><Run Text="NEW WORDS"/><LineBreak/><Run/></TextBlock>
         <Button x:Name="exitButton" Content="EXIT" HorizontalAlignment="Left" Margin="20,369,0,0" VerticalAlignment="Top" Width="54" Height="28" Opacity="0.55" BorderThickness="0" Click="exitButton_Click"/>
 
 

@@ -6,12 +6,32 @@
         xmlns:local="clr-namespace:NewWords"
         mc:Ignorable="d"
         Title="Card" Height="450" Width="500">
-    <Grid>
-        <Button x:Name="word" Content="Word" HorizontalAlignment="Left" Margin="123,123,0,0" VerticalAlignment="Top" Width="239" Height="134" FontFamily="Segoe UI Semibold" Click="WordButton_Click" FontSize="48"/>
+    
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Button.Background" Value="#FF67CBA9" />
+                <Setter Property="Button.Foreground" Value="White" />
+                <Setter Property="Button.FontFamily" Value="Verdana" />
+                <Setter Property="Button.Margin" Value="10" />
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="Foreground" Value="Red" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="grid" Background="White">
+        <Button x:Name="word" Content="Word" HorizontalAlignment="Left" Margin="119,123,0,0" VerticalAlignment="Top" Width="255" Height="134" FontFamily="MV Boli" Click="WordButton_Click" FontSize="48" FontWeight="Bold"/>
+
         <Button x:Name="exit" Content="exit" HorizontalAlignment="Left" Margin="68,274,0,0" VerticalAlignment="Top" Width="103" Height="30" FontFamily="Segoe UI Semibold" Click="exit_Click"/>
         <Button x:Name="save" Content="save" Click="save_Click" HorizontalAlignment="Left" Margin="193,274,0,0" VerticalAlignment="Top" Width="103" Height="30" FontFamily="Segoe UI Semibold"/>
         <Button x:Name="next" Content="next" Click="next_Click" HorizontalAlignment="Left" Margin="311,274,0,0" VerticalAlignment="Top" Width="103" Height="30" FontFamily="Segoe UI Semibold"/>
-        <Button x:Name="subject" Content="subject" HorizontalAlignment="Left" Margin="99,74,0,0" VerticalAlignment="Top" Width="298" Height="30" FontFamily="Segoe UI Semibold"/>
+        <Button x:Name="subjectBtn" Content="subject" HorizontalAlignment="Left" Margin="99,74,0,0" VerticalAlignment="Top" Width="298" Height="30" FontFamily="Segoe UI Semibold" Click="subjectBtn_Click"/>
+        <Button x:Name="theme" Content="Theme" HorizontalAlignment="Left" Margin="409,392,0,0" VerticalAlignment="Top" Width="75" Opacity="0.5" RenderTransformOrigin="0.472,-0.295" Click="theme_Click"/>
 
     </Grid>
 </Window>

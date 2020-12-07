@@ -21,16 +21,32 @@ namespace NewWords
     public partial class Card : Window
     {
         private List<Word> words;
-        public Card(List<Word> words)
+        private List<Subject> subjectsList;
+        bool isUkrainian;
+        bool isDarkTheme;
+        public Card(List<Word> words, List<Subject> subjects)
         {
+            isDarkTheme = false;
             this.words = words;
+            this.subjectsList = subjects;
             InitializeComponent();
+            subjectBtn.Content = subjectsList.Where(x => x.id == words[words.Count - 1].subject_id).FirstOrDefault().name;
             word.Content = words[words.Count - 1].word;
+            isUkrainian = false;
         }
 
         private void WordButton_Click(object sender, RoutedEventArgs e)
         {
-            word.Content = words[words.Count - 1].translation;
+            if (isUkrainian)
+            {
+                word.Content = words[words.Count - 1].word;
+                isUkrainian = false;
+            }
+            else
+            {
+                word.Content = words[words.Count - 1].translation;
+                isUkrainian = true;
+            }
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)
@@ -40,7 +56,7 @@ namespace NewWords
 
         private void next_Click(object sender, RoutedEventArgs e)
         {
-            if(words.Count != 0)
+            if (words.Count != 0)
             {
                 words.RemoveAt(words.Count - 1);
                 if (words.Count != 0)
@@ -51,6 +67,7 @@ namespace NewWords
                 {
                     MessageBox.Show("You won!");
                 }
+                subjectBtn.Content = subjectsList.Where(x => x.id == words[words.Count - 1].subject_id).FirstOrDefault().name;
             }
         }
 
@@ -59,7 +76,27 @@ namespace NewWords
             words.Insert(0, words[words.Count - 1]);
             words.RemoveAt(words.Count - 1);
             word.Content = words[words.Count - 1].word;
+            subjectBtn.Content = subjectsList.Where(x => x.id == words[words.Count - 1].subject_id).FirstOrDefault().name;
 
+        }
+
+        private void subjectBtn_Click(object sender, RoutedEventArgs e)
+        {
+            subjectBtn.Content = "SUBJECT";
+        }
+
+        private void theme_Click(object sender, RoutedEventArgs e)
+        {
+            if (isDarkTheme)
+            {
+                grid.Background = Brushes.White;
+                isDarkTheme = false;
+            }
+            else
+            {
+                grid.Background = Brushes.Black;
+                isDarkTheme = true;
+            }
         }
     }
 }

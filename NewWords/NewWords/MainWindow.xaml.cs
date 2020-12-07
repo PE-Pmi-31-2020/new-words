@@ -38,7 +38,7 @@ namespace NewWords
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             Game game = new Game(sessionId);
-            Card card = new Card(game.startGame());
+            Card card = new Card(game.startGameWords(), game.startGameSubjects());
             card.Show();
         }
 

@@ -15,13 +15,23 @@ namespace BLL
         {
             this.sessionId = sessionId;
         }
-        public List<Word> startGame()
+        public List<Word> startGameWords()
         {
             using (DataBase db = new DataBase())
             {
                 DatabaseRepository dbRepo = new DatabaseRepository(db);
                 List<Word> words = dbRepo.getAllWords(sessionId);
                 return words;
+            }
+        }
+        
+        public List<Subject> startGameSubjects()
+        {
+            using (DataBase db = new DataBase())
+            {
+                DatabaseRepository dbRepo = new DatabaseRepository(db);
+                List<Subject> subjects = dbRepo.getAllSubjectsForUser(sessionId);
+                return subjects;
             }
         }
     }
