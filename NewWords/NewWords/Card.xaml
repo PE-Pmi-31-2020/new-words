@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:NewWords"
         mc:Ignorable="d"
         Title="Card" Height="450" Width="500">
-    
     <Window.Resources>
         <Style TargetType="Button">
             <Style.Setters>
@@ -33,5 +32,5 @@
         <Button x:Name="subjectBtn" Content="subject" HorizontalAlignment="Left" Margin="99,74,0,0" VerticalAlignment="Top" Width="298" Height="30" FontFamily="Segoe UI Semibold" Click="subjectBtn_Click"/>
         <Button x:Name="theme" Content="Theme" HorizontalAlignment="Left" Margin="409,392,0,0" VerticalAlignment="Top" Width="75" Opacity="0.5" RenderTransformOrigin="0.472,-0.295" Click="theme_Click"/>
 
-    </Grid>
+        </Grid>
 </Window>

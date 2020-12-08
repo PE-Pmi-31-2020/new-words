@@ -38,12 +38,9 @@ namespace NewWords
                 int sessionId = session.getSessionId(username);
                 MainWindow mainWindow = new MainWindow(sessionId);
                 mainWindow.Show();
+                return;
             }
-            else
-            {
-                MessageBox.Show("Invalid credentials.");
-            }
-
+            MessageBox.Show("Invalid credentials.");
             
         }
 

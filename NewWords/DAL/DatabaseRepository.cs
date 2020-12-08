@@ -65,6 +65,12 @@ namespace DAL
             wordRepository.addWord(wordToAdd);
         }
 
+        public void editWord(int wordId, string word, string translation)
+        {
+            WordRepository wordRepository = new WordRepository(db);
+            wordRepository.editWord(wordId, word, translation);
+        }
+
         public void deleteWord(int wordId)
         {
             WordRepository wordRepository = new WordRepository(db);

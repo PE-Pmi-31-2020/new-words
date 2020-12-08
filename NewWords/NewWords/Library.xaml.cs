@@ -82,7 +82,18 @@ namespace NewWords
 
         private void EditWordButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            string[] wordInfo = wordTextBox.Text.Split(',');
+            using (DataBase db = new DataBase())
+            {
+                DatabaseRepository dbRepo = new DatabaseRepository(db);
+                int selectedWordId = ((Word)words.SelectedItem).id;
+                dbRepo.editWord(selectedWordId, wordInfo[0], wordInfo[1]);
+                wordsList = dbRepo.getAllWordsForSubject(currentSubjectId);
+                words.DisplayMemberPath = "word";
+                words.ItemsSource = wordsList;
+            }
+            wordTextBox.Clear();
+            words.UpdateLayout();
         }
 
         private void DeleteSubjectButton_Click(object sender, RoutedEventArgs e)
