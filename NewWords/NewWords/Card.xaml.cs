@@ -30,22 +30,36 @@ namespace NewWords
             this.words = words;
             this.subjectsList = subjects;
             InitializeComponent();
-            subjectBtn.Content = subjectsList.Where(x => x.id == words[words.Count - 1].subject_id).FirstOrDefault().name;
-            word.Content = words[words.Count - 1].word;
+            if (subjectsList.Count != 0)
+            {
+                subjectBtn.Content = subjectsList.Where(x => x.id == words[words.Count - 1].subject_id).FirstOrDefault().name;
+                word.Content = words[words.Count - 1].word;
+            }
             isUkrainian = false;
         }
 
         private void WordButton_Click(object sender, RoutedEventArgs e)
         {
-            if (isUkrainian)
+            try
             {
-                word.Content = words[words.Count - 1].word;
-                isUkrainian = false;
+                if (isUkrainian)
+                {
+                    word.Content = words[words.Count - 1].word;
+                    isUkrainian = false;
+                }
+                else
+                {
+                    word.Content = words[words.Count - 1].translation;
+                    isUkrainian = true;
+                }
             }
-            else
+            catch(ArgumentOutOfRangeException)
             {
-                word.Content = words[words.Count - 1].translation;
-                isUkrainian = true;
+                MessageBox.Show("There is No Word. Go to the Library.");
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Exception!");
             }
         }
 
@@ -73,10 +87,21 @@ namespace NewWords
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
-            words.Insert(0, words[words.Count - 1]);
-            words.RemoveAt(words.Count - 1);
-            word.Content = words[words.Count - 1].word;
-            subjectBtn.Content = subjectsList.Where(x => x.id == words[words.Count - 1].subject_id).FirstOrDefault().name;
+            try
+            {
+                words.Insert(0, words[words.Count - 1]);
+                words.RemoveAt(words.Count - 1);
+                word.Content = words[words.Count - 1].word;
+                subjectBtn.Content = subjectsList.Where(x => x.id == words[words.Count - 1].subject_id).FirstOrDefault().name;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("There are No Words to Save. Go to the Library.");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Exception!");
+            }
 
         }
 

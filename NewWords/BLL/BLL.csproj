@@ -134,6 +134,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\IAuthorization.cs" />
+    <Compile Include="InvalidDataCustomerException.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />

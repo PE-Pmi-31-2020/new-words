@@ -31,16 +31,20 @@ namespace NewWords
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Password;
             Authorization auth = new Authorization();
-            if (auth.TryLogin(username, password))
+            try
             {
+                auth.TryLogin(username, password);
                 MessageBox.Show("Successfully logged in!");
                 Session session = new Session();
                 int sessionId = session.getSessionId(username);
                 MainWindow mainWindow = new MainWindow(sessionId);
                 mainWindow.Show();
+            }
+            catch(InvalidDataCustomerException)
+            {
+                MessageBox.Show("Invalid credentials.");
                 return;
             }
-            MessageBox.Show("Invalid credentials.");
             
         }
 
@@ -49,12 +53,16 @@ namespace NewWords
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Password;
             Authorization auth = new Authorization();
-            if (auth.TrySignup(username, password))
+            try
             {
+                auth.TrySignup(username, password);
                 MessageBox.Show("Successfully signed up!");
+            }
+            catch (InvalidDataCustomerException)
+            {
+                MessageBox.Show("There is already a registered user with that email");
                 return;
             }
-            MessageBox.Show("There is already a registered user with that email");
         }
 
         private void Username_TextChanged(object sender, TextChangedEventArgs e)
