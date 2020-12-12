@@ -62,12 +62,12 @@ namespace NewWords
                 if (words.Count != 0)
                 {
                     word.Content = words[words.Count - 1].word;
+                    subjectBtn.Content = subjectsList.Where(x => x.id == words[words.Count - 1].subject_id).FirstOrDefault().name;
                 }
                 else
                 {
                     MessageBox.Show("You won!");
                 }
-                subjectBtn.Content = subjectsList.Where(x => x.id == words[words.Count - 1].subject_id).FirstOrDefault().name;
             }
         }
 

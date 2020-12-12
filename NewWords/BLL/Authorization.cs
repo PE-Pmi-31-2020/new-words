@@ -6,7 +6,7 @@ using DAL.Models;
 
 namespace BLL
 {
-    public class Authorization
+    public class Authorization : IAuthorization
     {
         private ILogger logger = new FileLogger("./logs.log");
 
@@ -16,7 +16,7 @@ namespace BLL
             {
                 DatabaseRepository dbRepo = new DatabaseRepository(db);
                 User user = dbRepo.authenticateUser(email, password);
-                if(user.email == "-1")
+                if (user.email == "-1")
                 {
                     this.logger.Error("Could not authenticate with credentials " + email.Trim() + ", " + password.Trim());
                     return false;
