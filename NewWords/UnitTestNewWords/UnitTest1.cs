@@ -1,5 +1,6 @@
 ﻿using System;
 using BLL;
+using DAL;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -50,14 +51,30 @@ namespace UnitTestNewWords
         //    Mock<IAuthorization> authorization = new Mock<IAuthorization>();
         //    authorization.Setup(a => a.TrySignup("d", "d")).Returns(false);
         //    Assert.IsFalse(authorization.Object.TrySignup("d", "d"));
-
         //}
+
 
         [TestMethod]
         public void TestSignUpValidData()
         {
             Mock<IAuthorization> authorization = new Mock<IAuthorization>();
             authorization.Setup(a => a.TrySignup("diana", "diana"));
+
+        }
+
+        [TestMethod]
+        public void TestLoginValidData()
+        {
+            Mock<IAuthorization> authorization = new Mock<IAuthorization>();
+            authorization.Setup(a => a.TryLogin("diana", "diana"));
+
+        }
+
+        [TestMethod]
+        public void TestLoginNotValidData()
+        {
+            Mock<IAuthorization> authorization = new Mock<IAuthorization>();
+            authorization.Setup(a => a.TryLogin("", ""));
 
         }
 

@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace DAL
 {
-    public class DataBase : DbContext
+    public class DataBase : DbContext, IDataBase
     {
         public DbSet<User> users { get; set; }
         public DbSet<Subject> subjects { get; set; }

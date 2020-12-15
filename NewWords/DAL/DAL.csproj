@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase.cs" />
+    <Compile Include="IDataBase.cs" />
     <Compile Include="Utils\RandomDataGenerator.cs" />
     <Compile Include="DatabaseRepository.cs" />
     <Compile Include="Models\Subject.cs" />
